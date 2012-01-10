@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Properties;
 import java.util.jar.JarFile;
+import java.util.logging.Level;
 import java.util.zip.ZipEntry;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -108,9 +109,8 @@ public class MyChunks extends JavaPlugin {
             out.close();
             in.close();
         }
-        catch (Exception moveFailed) {
-            System.err.println("[ChunkOwn] File Move Failed!");
-            moveFailed.printStackTrace();
+        catch (Exception ex) {
+            server.getLogger().log(Level.SEVERE, "[MyChunks] File Move Failed!", ex);
         }
     }
     
@@ -324,9 +324,8 @@ public class MyChunks extends JavaPlugin {
             
             bReader.close();
         }
-        catch (Exception loadFailed) {
-            System.err.println("[ChunkOwn] Load Failed!");
-            loadFailed.printStackTrace();
+        catch (Exception ex) {
+            server.getLogger().log(Level.SEVERE, "[MyChunks] Load Failed!", ex);
         }
     }
     
@@ -371,9 +370,8 @@ public class MyChunks extends JavaPlugin {
                 }
             bWriter.close();
         }
-        catch (Exception saveFailed) {
-            System.err.println("[ChunkOwn] Save Failed!");
-            saveFailed.printStackTrace();
+        catch (Exception ex) {
+            server.getLogger().log(Level.SEVERE, "[MyChunks] Save Failed!", ex);
         }
     }
     
